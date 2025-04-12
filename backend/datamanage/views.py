@@ -1,6 +1,6 @@
 import json
 from app import db
-from flask import Blueprint, render_template, request, redirect, url_for, jsonify
+from flask import Blueprint, request, jsonify
 from models import SampleDB
 from models import model_schemas, model_schema
 
@@ -17,7 +17,6 @@ def index():
 
 @bp.route("/api/item", methods=["POST"])
 def create():
-    print(request)
     name = request.json["name"]
     price = request.json["price"]
     request_data = SampleDB(name=name, price=price)
